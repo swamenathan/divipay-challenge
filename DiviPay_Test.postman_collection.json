@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "e15bd9e2-2685-42fc-9796-6c5907a10202",
+		"name": "DiviPay Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "divipay-api",
+			"item": [
+				{
+					"name": "cards",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token cee3eb93edcf292289bb360fcc24b9b6e877f85d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://backend-challenge-api.herokuapp.com/api/cards/",
+							"protocol": "https",
+							"host": [
+								"backend-challenge-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"cards",
+								""
+							]
+						},
+						"description": "Creates and returns a new card for testing. It is important to store the returned object and maintain updates to the card balance in your application."
+					},
+					"response": []
+				},
+				{
+					"name": "transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token cee3eb93edcf292289bb360fcc24b9b6e877f85d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://backend-challenge-api.herokuapp.com/api/transaction/",
+							"protocol": "https",
+							"host": [
+								"backend-challenge-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"transaction",
+								""
+							]
+						},
+						"description": " Returns the next transaction for that card. If your application approves the transaction, you should update your stored card balance for future transactions."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "save-card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token cee3eb93edcf292289bb360fcc24b9b6e877f85d",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/save-card-details/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"save-card-details",
+						""
+					]
+				},
+				"description": "Creates and returns a new card for testing. It is important to store the returned object and maintain updates to the card balance in your application."
+			},
+			"response": []
+		},
+		{
+			"name": "card-controls",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/card-controls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"card-controls"
+					]
+				},
+				"description": "Return a list of exiting card controls"
+			},
+			"response": []
+		},
+		{
+			"name": "create-card-control",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "parent_card",
+							"value": "78712b45-cc9b-4d48-b421-0fdc04c16acd",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "5431,7234,2342",
+							"type": "text"
+						},
+						{
+							"key": "merchant",
+							"value": "Woolworths,Officeworks",
+							"type": "text"
+						},
+						{
+							"key": "max_value",
+							"value": "500",
+							"type": "text"
+						},
+						{
+							"key": "min_value",
+							"value": "50",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/create-card-control/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"create-card-control",
+						""
+					]
+				},
+				"description": "Creates a new card control from the body of the request."
+			},
+			"response": []
+		},
+		{
+			"name": "delete-card-control",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/delete-card-control/9e1e8f42-0f35-4831-b99d-1d4cd38ba3d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"delete-card-control",
+						"9e1e8f42-0f35-4831-b99d-1d4cd38ba3d9"
+					]
+				},
+				"description": "Deletes a single card control."
+			},
+			"response": []
+		},
+		{
+			"name": "validate-transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cc_id",
+							"value": "bb767285-8138-4a29-830d-f52b36755f02",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/validate-transaction/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"validate-transaction",
+						""
+					],
+					"query": [
+						{
+							"key": "card_control_id",
+							"value": "3635345",
+							"disabled": true
+						},
+						{
+							"key": "transaction_id",
+							"value": "wertertert",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Validate a given transaction against a card control"
+			},
+			"response": []
+		}
+	]
+}
