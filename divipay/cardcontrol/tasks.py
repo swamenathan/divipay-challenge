@@ -7,6 +7,8 @@ from celery.utils.log import get_task_logger
 
 from celery import shared_task
 
+from divipay.settings import *
+
 # Get an instance of a logger
 logger = get_task_logger(__name__)
 
@@ -14,8 +16,8 @@ logger = get_task_logger(__name__)
 @shared_task()
 def get_transaction(cc_id_pk):
 
-    headers = {'Authorization': 'Token cee3eb93edcf292289bb360fcc24b9b6e877f85d'}
-    response = requests.get(' https://backend-challenge-api.herokuapp.com/api/transaction/', headers=headers)
+    headers = {'Authorization': 'Token ' + DIVIPAY_TOKEN}
+    response = requests.get(DIVIPAY_API, headers=headers)
 
     trans_data = response.json()
 
@@ -86,8 +88,8 @@ def save_transaction(t_data, error_status, message):
 @shared_task()
 def post_card():
 
-    headers = {'Authorization': 'Token cee3eb93edcf292289bb360fcc24b9b6e877f85d'}
-    response = requests.post(' https://backend-challenge-api.herokuapp.com/api/cards/', headers=headers)
+    headers = {'Authorization': 'Token' + DIVIPAY_TOKEN}
+    response = requests.post(DIVIPAY_API, headers=headers)
 
     trans_data = response.json()
     logger.info('trans_data = %s ' % trans_data)

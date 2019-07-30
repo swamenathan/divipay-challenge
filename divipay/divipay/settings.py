@@ -130,3 +130,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_RESULT_BACKEND = 'django-db'
 
 SITE_ID = 1
+
+
+DIVIPAY_API = 'https://backend-challenge-api.herokuapp.com/api/transaction/'
+DIVIPAY_TOKEN = 'cee3eb93edcf292289bb360fcc24b9b6e877f85d'
