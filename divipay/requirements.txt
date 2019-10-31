@@ -1,7 +1,7 @@
 amqp==2.5.0
 billiard==3.6.0.0
 celery==4.3.0
-Django==2.2.3
+Django==2.2.4
 django-celery-results==1.1.2
 djangorestframework==3.10.1
 kombu==4.6.3
