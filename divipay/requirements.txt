@@ -3,7 +3,7 @@ billiard==3.6.0.0
 celery==4.3.0
 Django==2.2.3
 django-celery-results==1.1.2
-djangorestframework==3.10.1
+djangorestframework==3.11.2
 kombu==4.6.3
 pytz==2019.1
 sqlparse==0.3.0
